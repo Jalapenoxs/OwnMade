@@ -1,0 +1,88 @@
+local StarterGui = game:GetService("StarterGui")
+local Players = game:GetService("Players")
+
+-- Generic notification function
+local function notifyPlayer(userId, title)
+    local player = Players:GetPlayerByUserId(userId)
+    if player then
+        StarterGui:SetCore("SendNotification", {
+            Title = title,
+            Text = "Username: " .. player.Name,
+            Duration = 6
+        })
+    end
+end
+
+-- Setup PlayerAdded listener for a specific userId and title
+local function setupPlayerJoinNotification(userId, title)
+    Players.PlayerAdded:Connect(function(plr)
+        if plr.UserId == userId then
+            notifyPlayer(userId, title)
+        end
+    end)
+end
+
+-- Your lists
+local Test = { 4776337082 }
+local Celebs = { 885950, 5849024706, 2589966928, 5554615552, 3790829783, 339868684, 2205951910, 7198900465, 1538998338, 2278707804, 5070197615, 1878414563, 1708929528, 4337241317, 2327001188 }
+local Influencer = { 2478082912, 279000539, 1524932728, 1636862322, 3510952759, 4717217397, 36368235, 97303130, 4656808630, 4001569683, 103313777, 2447086283, 1679536495, 4727925243, 2521650242, 2856873958, 3053056654, 52535762, 5476000547, 1570505562, 133827245, 3488718508, 3950637598, 5832953307, 2338712284, 3894123313, 178740562, 878279238, 601262307, 2456939876, 95397144, 186731666 }
+local Verified = { 160496528, 3617153442, 8130930626, 929888317, 3146910490, 1046851536, 3701423181, 3756657101, 550860854, 1111528852, 236304447, 4553168881, 275686568, 4434472404, 419293944, 1523513359, 473150067, 321178532, 406735038, 3689221411, 29761878, 2348905353, 665469352, 212276218, 96315796, 359209880, 4002541497, 628662650, 3192549270, 175846384, 4448767244, 1029137081, 1177029768, 2393807480, 1485126185, 812291, 259420681, 971193650, 5817777160, 3525918505, 40527673, 145740081, 224068649, 225429011, 4423402956, 315592893, 4365585353, 1516086396, 499671971, 246522640, 2693040181, 368128037, 4061250786, 3185389788, 9221415, 21345211, 544064867, 186804856, 240075378, 3333755037, 3354916126, 422314979, 448012101, 1662851274, 654712576, 295762020, 893610805, 2962579319, 1527425585, 534942844, 63531881, 119770566, 2269462008, 296295541, 948293345, 94102158, 81720432, 1391475335, 971662350, 1446694201, 524527539, 343431112, 3044484840, 448443585, 50801509, 336965291, 32581425, 1333636279, 372914675, 173500963, 86256991, 186480194, 14921263, 91167436, 385900233, 1220684901, 56602747, 1174637810, 969098547, 133136396, 38079729, 69612307, 244844600, 1424338327, 123597957, 139852375, 65217781 }
+
+-- Send notifications for existing players
+for _, userId in ipairs(Celebs) do
+    notifyPlayer(userId, "Celeb")
+end
+
+for _, userId in ipairs(Influencer) do
+    notifyPlayer(userId, "Influencer")
+end
+
+for _, userId in ipairs(Verified) do
+    notifyPlayer(userId, "Verified")
+end
+
+-- Set up join notifications
+for _, userId in ipairs(Celebs) do
+    setupPlayerJoinNotification(userId, "Celeb")
+end
+
+for _, userId in ipairs(Influencer) do
+    setupPlayerJoinNotification(userId, "Influencer")
+end
+
+for _, userId in ipairs(Verified) do
+    setupPlayerJoinNotification(userId, "Verified")
+end
+
+local Bitch = {
+1830168970,
+29242182,
+2395613299,
+3520967,
+2259174309,
+3944434729,
+439942262,
+93101606,
+163721789,
+8195210,
+328566086,
+89473551,
+ 
+}
+
+for l, c in pairs(game.Players:GetChildren()) do
+for i, v in pairs(Bitch) do
+if c.UserId == v then
+local Vanis = game.Players.LocalPlayer
+Vanis:Kick("Hoe Detected")
+end
+end
+end
+game.Players.PlayerAdded:Connect(function(plr)
+for i, v in pairs(Bitch) do
+if plr.UserId == v then
+local Vanis = game.Players.LocalPlayer
+Vanis:Kick("Hoe Detected")
+end
+end
+end)
